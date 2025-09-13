@@ -1,0 +1,290 @@
+/* styles.css - cleaned & grouped */
+
+/* ====== Base ====== */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(17, 247, 189);
+  color: #222;
+  box-sizing: border-box;
+}
+
+/* ====== Header ====== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 5px;
+  width: calc(96%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 10px solid gray;
+  background: #651585;
+  color: wheat;
+  padding: 0 20px;
+  height: 120px;
+  z-index: 3000;
+}
+
+header h1 {
+  margin: 0 auto;
+  font-size: 1.4rem;
+}
+
+#add-todo-btn {
+  margin-right: 30px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #4caf50;
+  color: #fff;
+}
+
+/* ====== Sidebar / Projects ====== */
+#sidebar {
+  position: fixed;
+  left: 0;
+  top: 140px;
+  width: 200px;
+  height: 100%;
+  background: #651585;
+  color: wheat;
+  border-left: 10px solid gray;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#sidebar h2 {
+  margin-top: 0;
+}
+
+#project-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+}
+
+#project-list li {
+  margin: 8px 0;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+#project-list li:hover {
+  background: #ddd;
+  padding-left: 9px;
+  color: black;
+}
+
+#project-list li.active-project {
+  font-weight: bold;
+  background-color: #d0ebff;
+  color: black;
+}
+
+/* ====== Modal ======
+   Note: your JS sets id="todo-modal" and class="modal" and toggles a "show" class.
+   We support both #todo-modal and .modal selectors. */
+#todo-modal,
+.modal {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+  background: #e2dcdc;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  max-width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none; /* hidden by default; JS toggles .show or sets style.display */
+  box-sizing: border-box;
+  max-height: 550px;  /* prevent very tall cards */
+  overflow-y: auto;   /* scroll if content overflows */
+}
+
+#todo-modal.show,
+.modal.show {
+  display: block;
+}
+
+.modal-content h3 {
+  margin: 0 0 12px 0;
+  text-align: center;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.modal-content button {
+  padding: 8px 14px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-content button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+}
+
+.modal-content #cancel-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+/* ====== Main TODO area ====== */
+#todo-list {
+  margin: 20px;
+  box-sizing: border-box;
+}
+
+/* Project header */
+.project-header,
+#todo-list h1 {
+  margin-top: 175px;   /* clears fixed header height */
+  margin-left: 250px;  /* clears fixed sidebar width + gap */
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Cards wrapper */
+#cards-container {
+  margin-top: 30px;
+  margin-left: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* ====== Card ====== */
+.todo-card {
+  width: 200px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 18px;
+  padding: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.todo-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.15rem;
+}
+
+.todo-due,
+.todo-priority {
+  font-size: 0.95rem;
+  color: #444;
+  margin: 3px 0;
+}
+
+/* Actions */
+.todo-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.edit-btn { background: #2196f3; }
+.delete-btn { background: #dc3545; }
+
+/* ====== Checklist inside card ====== */
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+/* ====== Tooltip ====== */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100%;
+  background: #ccc;
+  color: black;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  white-space: pre-line;
+  z-index: 2500;
+  width: 180px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.tooltip-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ====== Misc ====== */
+#checklist-preview {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 8px;
+}
+
+#checklist-preview li {
+  font-size: 14px;
+  padding: 2px 0;
+}
+
+/* ====== Time + Date inline group ====== */
+.todo-datetime {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #444;
+  margin-top: 6px;
+}
