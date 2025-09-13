@@ -91,7 +91,7 @@ header h1 {
 #todo-modal,
 .modal {
   position: fixed;
-  top: 500px;
+  top: 400px;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2000;
