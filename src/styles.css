@@ -91,10 +91,10 @@ header h1 {
 #todo-modal,
 .modal {
   position: fixed;
-  top: 400px;
+  top: 300px;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2000;
+  z-index: 10000;
   background: #e2dcdc;
   padding: 20px;
   border-radius: 8px;
