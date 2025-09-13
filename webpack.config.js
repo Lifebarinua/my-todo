@@ -2,11 +2,11 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "productiot",
   entry: "./src/index.js",
   output: {
     filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "docs"),
     clean: true, // clears old dist before build
   },
   module: {
@@ -23,7 +23,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    static: "./dist",
+    static: "./docs",
     open: true,
     hot: true,
   },
