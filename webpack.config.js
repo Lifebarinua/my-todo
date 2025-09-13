@@ -6,7 +6,7 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "main.js",
-    path: path.resolve(__dirname, "docs"),
+    path: path.resolve(__dirname, "dist"),
     clean: true, // clears old dist before build
   },
   module: {
@@ -23,7 +23,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    static: "./docs",
+    static: "./dist",
     open: true,
     hot: true,
   },
